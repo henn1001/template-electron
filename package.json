@@ -1,0 +1,35 @@
+{
+  "name": "template-electron-workspace",
+  "description": "A scalable Electron workspace with a Vue UI package.",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "overrides": {
+    "tar": "7.5.22",
+    "tmp": "0.2.7"
+  },
+  "scripts": {
+    "start": "npm --workspace @template/desktop run start",
+    "ui:dev": "npm --workspace @template/ui run dev",
+    "ui:build": "npm --workspace @template/ui run build",
+    "ui:preview": "npm --workspace @template/ui run preview",
+    "typecheck": "npm --workspace @template/desktop run typecheck && npm --workspace @template/ui run typecheck",
+    "lint": "npm --workspace @template/desktop run lint && npm --workspace @template/ui run lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint",
+    "package": "npm --workspace @template/desktop run package",
+    "make": "npm --workspace @template/desktop run make"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6"
+  }
+}

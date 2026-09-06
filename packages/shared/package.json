@@ -1,0 +1,7 @@
+{
+  "name": "@template/shared",
+  "version": "0.0.0",
+  "description": "Shared contracts and models for the Electron template.",
+  "private": true,
+  "type": "module"
+}

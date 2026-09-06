@@ -1,0 +1,11 @@
+# Dependencies and generated output are never formatted.
+node_modules/
+package-lock.json
+
+# Build / packaging output.
+dist/
+out/
+build/
+coverage/
+.vite/
+*.min.js

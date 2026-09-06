@@ -1,0 +1,56 @@
+{
+  "name": "@template/desktop",
+  "productName": "electron-vue-template",
+  "version": "1.0.0",
+  "description": "A secure, scalable Electron desktop app built with TypeScript, Vue, and Vite.",
+  "private": true,
+  "type": "module",
+  "main": ".vite/build/bootstrap.cjs",
+  "scripts": {
+    "start": "electron-forge start",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint --ext .ts ../../packages/shared electron forge.config.ts vite.*.config.ts",
+    "check": "npm run typecheck && npm run lint",
+    "package": "electron-forge package",
+    "make": "rm -rf out dist && npm run package && electron-builder --linux AppImage --publish never --prepackaged \"$(find out -maxdepth 1 -type d -name '*-linux-*' -print -quit)\" && rm -f dist/*.yml",
+    "publish": "electron-forge publish"
+  },
+  "keywords": [
+    "electron",
+    "vue",
+    "vite",
+    "typescript"
+  ],
+  "author": "Electron Vue Template contributors",
+  "license": "MIT",
+  "build": {
+    "appId": "com.template.desktop",
+    "executableName": "electron-vue-template",
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "dependencies": {
+    "@template/shared": "*",
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.2",
+    "@electron-forge/plugin-fuses": "^7.11.2",
+    "@electron-forge/plugin-vite": "^7.11.2",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/node": "^26.4.1",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "electron": "44.2.0",
+    "electron-builder": "^26.15.7",
+    "eslint": "^10.10.0",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import-x": "^4.17.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11"
+  }
+}
